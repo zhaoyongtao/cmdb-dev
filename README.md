@@ -5,7 +5,7 @@ Django-CMDB-ProtoType 配置管理系统
 [![versions](https://img.shields.io/badge/Django1.10-stable-green.svg)]()
 [![versions](https://img.shields.io/badge/Bootstrap%20v3.3.6-stable-brightgreen.svg)]()
 
-- 本程序属于学习类项目，只是一个原形系统，功能陆续开发完善中....
+- 本程序属于开发类项目，只是一个原形系统，请勿用于生产环境。功能陆续开发完善中....
   - 支持Python 3.
   - 采用Bootstrap样式渲染前端.
   - 对自定义字段采取字典化.
@@ -37,6 +37,5 @@ Django-CMDB-ProtoType 配置管理系统
 
    
 ## 效果图
-![promisechains](https://github.com/Leon2018/cmdb/raw/master/2.png)
-
-
+![login](https://github.com/zhaoyongtao/cmdb-dev/blob/master/1.png)
+![promisechains](https://github.com/zhaoyongtao/cmdb-dev/blob/master/2.png)
