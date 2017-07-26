@@ -1,4 +1,4 @@
-Django-CMDB-ProtoType 配置管理系统
+Django-CMDB 配置管理系统
 ====
 
 [![versions](https://img.shields.io/pypi/pyversions/Django.svg)]()
