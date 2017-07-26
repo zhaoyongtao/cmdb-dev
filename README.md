@@ -37,5 +37,5 @@ Django-CMDB-ProtoType 配置管理系统
 
    
 ## 效果图
-![login](https://github.com/zhaoyongtao/cmdb-dev/blob/master/1.png)
-![promisechains](https://github.com/zhaoyongtao/cmdb-dev/blob/master/2.png)
+![login](https://raw.githubusercontent.com/zhaoyongtao/cmdb-dev/master/1.png)
+![promisechains](https://raw.githubusercontent.com/zhaoyongtao/cmdb-dev/master/2.png)
