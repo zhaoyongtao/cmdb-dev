@@ -1,0 +1,54 @@
+{% extends "op/base_edit.html" %}
+
+{% block title %}审批项目{% endblock %}
+
+
+{% block form %}
+<form class="form-horizontal" role="form" action="{% url 'op:project_auth' id %}" method="post">
+    {% csrf_token %}
+
+    <fieldset>
+        <legend><strong>审批项目</strong></legend>
+        <div class="col-lg-12 form-group">
+            <label class="col-sm-2 control-label">{{ form.auth_status.label_tag }}</label>
+            <div class="col-sm-4">{{ form.auth_status }}</div>
+            <label class="col-sm-2 control-label">{{ form.project_name.label_tag }}</label>
+            <div class="col-sm-4">{{ form.project_name }}</div>
+        </div>
+        <div class="col-lg-12 form-group">
+            <label class="col-sm-2 control-label">{{ form.unit.label_tag }}</label>
+            <div class="col-sm-4">{{ form.unit }}</div>
+            <label class="col-sm-2 control-label">{{ form.manager.label_tag }}</label>
+            <div class="col-sm-4">{{ form.manager }}</div>
+        </div>
+        <div class="col-lg-12 form-group">
+            <label class="col-sm-2 control-label">{{ form.architect.label_tag }}</label>
+            <div class="col-sm-4">{{ form.architect }}</div>
+            <label class="col-sm-2 control-label">{{ form.developer.label_tag }}</label>
+            <div class="col-sm-4">{{ form.developer }}</div>
+        </div>
+        <div class="col-lg-12 form-group">
+            <label class="col-sm-2 control-label">{{ form.git.label_tag }}</label>
+            <div class="col-sm-4">{{ form.git }}</div>
+            <label class="col-sm-2 control-label">{{ form.remark.label_tag }}</label>
+            <div class="col-sm-4">{{ form.remark }}</div>
+        </div>
+    </fieldset>
+
+    <div class="form-group">
+        <div class="col-lg-10 control-label">
+            <button type="submit" class="btn btn-primary">提  交</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="{% url 'op:project_auth_list' %}" type="button" class="btn btn-primary">返  回</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
+    </div>
+
+</form>
+</div>
+{% endblock %}
+
+
+
+
+
+
+

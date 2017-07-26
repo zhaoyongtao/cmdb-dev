@@ -1,0 +1,65 @@
+{% extends "op/base_show.html" %}
+
+{% block title %}资源{% endblock %}
+
+
+{% block page-header %}资源{% endblock %}
+
+{% block add-btn %}
+<a href="{% url 'op:resource_add' %}" type="button" class="btn btn-success">申请资源</a>
+{% endblock %}
+
+{% block thead %}
+    <th>审核状态</th>
+    <th>项目ID</th>
+{#    <th>用途</th>#}
+    <th>申请人</th>
+    <th>审核人</th>
+    <th>所属环境</th>
+{#    <th>CPU</th>#}
+{#    <th>内存</th>#}
+{#    <th>磁盘</th>#}
+{#    <th>操作系统</th>#}
+    <th>申请台数</th>
+    <th>申请时间</th>
+    <th>详细信息</th>
+{% endblock %}
+
+{% block tbody %}
+    {% for row in resource %}
+    <tr class="{% cycle 'even gradeC' 'odd gradeC' %}">
+        <td>
+            {% if row.auth_status == 1 %}
+            <span style="color:#00ff00"><strong>{{ row.get_auth_status_display }}</strong></span>
+            {% elif row.auth_status == 2 %}
+            <span style="color:#ff0000"><strong>{{ row.get_auth_status_display }}</strong></span>
+            {% else %}
+            <span style="color:#0000ff"><strong>{{ row.get_auth_status_display }}</strong></span>
+            {% endif %}
+        </td>
+        <td>{{ row.project }}</td>
+{#        <td>{{ row.purpose }}</td>#}
+        <td>{{ row.apply_user }}</td>
+        <td>
+            {% if row.superviser %}
+                {{ row.superviser }}
+            {% else %}
+                无
+            {% endif %}
+        </td>
+        <td>{{ row.environ }}</td>
+{#        <td>{{ row.cpu }}</td>#}
+{#        <td>{{ row.mem }}</td>#}
+{#        <td>{{ row.disk }}</td>#}
+{#        <td>{{ row.os }}</td>#}
+        <td>{{ row.number }}</td>
+        <td>{{ row.cdate|date:'Y-m-d H:i' }}</td>
+        <td><a href="{% url 'op:resource_edit' row.id %}">详细信息</a></td>
+    </tr>
+    {% endfor %}
+{% endblock %}
+
+
+
+
+

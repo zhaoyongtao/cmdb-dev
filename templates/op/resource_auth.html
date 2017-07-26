@@ -1,0 +1,47 @@
+{% extends "op/base_show.html" %}
+
+{% block title %}资源{% endblock %}
+
+
+{% block page-header %}资源审核{% endblock %}
+
+{% block add-btn %}{% endblock %}
+
+{% block thead %}
+    <th>审核状态</th>
+    <th>项目ID</th>
+    <th>用途</th>
+    <th>申请人</th>
+    <th>所属环境</th>
+    <th>申请台数</th>
+    <th>申请时间</th>
+{% endblock %}
+
+{% block tbody %}
+    {% for row in resource %}
+    <tr class="{% cycle 'even gradeC' 'odd gradeC' %}">
+        <td>
+            <a href="{% url 'op:resource_auth' row.id %}">
+            {% if row.auth_status == 1 %}
+            <span style="color:#00ff00"><strong>{{ row.get_auth_status_display }}</strong></span>
+            {% elif row.auth_status == 2 %}
+            <span style="color:#ff0000"><strong>{{ row.get_auth_status_display }}</strong></span>
+            {% else %}
+            <span style="color:#0000ff"><strong>{{ row.get_auth_status_display }}</strong></span>
+            {% endif %}
+            </a>
+        </td>
+        <td>{{ row.project }}</td>
+        <td>{{ row.purpose }}</td>
+        <td>{{ row.apply_user }}</td>
+        <td>{{ row.environ }}</td>
+        <td>{{ row.number }}</td>
+        <td>{{ row.cdate|date:'Y-m-d H:i' }}</td>
+    </tr>
+    {% endfor %}
+{% endblock %}
+
+
+
+
+

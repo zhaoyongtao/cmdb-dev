@@ -1,0 +1,29 @@
+{% extends "op/base_show.html" %}
+
+{% block title %}操作系统{% endblock %}
+
+
+{% block page-header %}操作系统{% endblock %}
+
+{% block add-btn %}
+<a href="{% url 'op:os_add' %}" type="button" class="btn btn-success">添加系统</a>
+{% endblock %}
+
+{% block thead %}
+    <th>操作系统</th>
+    <th>系统描述</th>
+{% endblock %}
+
+{% block tbody %}
+    {% for row in os %}
+    <tr class="{% cycle 'even gradeC' 'odd gradeC' %}">
+        <td><a href="{% url 'op:os_edit' id=row.id %}">{{ row.os_name }}</a></td>
+        <td>{{ row.description }}</td>
+    </tr>
+    {% endfor %}
+{% endblock %}
+
+
+
+
+

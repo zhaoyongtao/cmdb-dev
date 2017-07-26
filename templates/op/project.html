@@ -1,0 +1,53 @@
+{% extends "op/base_show.html" %}
+
+{% block title %}项目{% endblock %}
+
+
+{% block page-header %}项目{% endblock %}
+
+{% block add-btn %}
+<a href="{% url 'op:project_add' %}" type="button" class="btn btn-success">申请项目</a>
+{% endblock %}
+
+{% block thead %}
+    <th>授权状态</th>
+    <th>发布单元</th>
+    <th>项目名</th>
+    <th>申请人</th>
+    <th>审批人</th>
+    <th>申请时间</th>
+    <th>详细信息</th>
+{% endblock %}
+
+{% block tbody %}
+    {% for row in project %}
+    <tr class="{% cycle 'even gradeC' 'odd gradeC' %}">
+        <td>
+            {% if row.auth_status == 1 %}
+            <span style="color:#00ff00"><strong>{{ row.get_auth_status_display }}</strong></span>
+            {% elif row.auth_status == 2 %}
+            <span style="color:#ff0000"><strong>{{ row.get_auth_status_display }}</strong></span>
+            {% else %}
+            <span style="color:#0000ff"><strong>{{ row.get_auth_status_display }}</strong></span>
+            {% endif %}
+        </td>
+        <td>{{ row.unit }}</td>
+        <td>{{ row.project_name }}</td>
+        <td>{{ row.owner }}</td>
+        <td>
+            {% if row.superviser %}
+                {{ row.superviser }}
+            {% else %}
+                无
+            {% endif %}
+        </td>
+        <td>{{ row.cdate|date:'Y-m-d H:i' }}</td>
+        <td><a href="{% url 'op:project_edit' row.id %}">详细信息</a></td>
+    </tr>
+    {% endfor %}
+{% endblock %}
+
+
+
+
+

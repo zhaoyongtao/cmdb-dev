@@ -1,0 +1,59 @@
+{% extends "op/base_edit.html" %}
+
+{% block title %}审核资源{% endblock %}
+
+
+{% block form %}
+<form class="form-horizontal" role="form" action="{% url 'op:resource_auth' id %}" method="post">
+    {% csrf_token %}
+    <fieldset>
+        <legend><strong>审核资源</strong></legend>
+        <div class="col-lg-12 form-group">
+            <label class="col-sm-2 control-label">{{ form.auth_status.label_tag }}</label>
+            <div class="col-sm-4">{{ form.auth_status }}</div>
+            <label class="col-sm-2 control-label">{{ form.project.label_tag }}</label>
+            <div class="col-sm-4">{{ form.project }}</div>
+        </div>
+        <div class="col-lg-12 form-group">
+            <label class="col-sm-2 control-label">{{ form.environ.label_tag }}</label>
+            <div class="col-sm-4">{{ form.environ }}</div>
+            <label class="col-sm-2 control-label">{{ form.purpose.label_tag }}</label>
+            <div class="col-sm-4">{{ form.purpose }}</div>
+        </div>
+        <div class="col-lg-12 form-group">
+            <label class="col-sm-2 control-label">{{ form.cpu.label_tag }}</label>
+            <div class="col-sm-4">{{ form.cpu }}</div>
+            <label class="col-sm-2 control-label">{{ form.mem.label_tag }}</label>
+            <div class="col-sm-4">{{ form.mem }}</div>
+        </div>
+        <div class="col-lg-12 form-group">
+            <label class="col-sm-2 control-label">{{ form.disk.label_tag }}</label>
+            <div class="col-sm-4">{{ form.disk }}</div>
+            <label class="col-sm-2 control-label">{{ form.os.label_tag }}</label>
+            <div class="col-sm-4">{{ form.os }}</div>
+        </div>
+        <div class="col-lg-12 form-group">
+            <label class="col-sm-2 control-label">{{ form.apply_user.label_tag }}</label>
+            <div class="col-sm-4">{{ form.apply_user }}</div>
+            <label class="col-sm-2 control-label">{{ form.number.label_tag }}</label>
+            <div class="col-sm-4">{{ form.number }}</div>
+        </div>
+    </fieldset>
+
+    <div class="form-group">
+        <div class="col-lg-5 col-sm-5 control-label">
+            <button type="submit" class="btn btn-primary">提  交</button>&nbsp;&nbsp;
+            <a href="{% url 'op:resource' %}" type="button" class="btn btn-primary">返  回</a>
+        </div>
+    </div>
+
+</form>
+</div>
+{% endblock %}
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+{% extends "op/base_edit.html" %}
+
+{% block title %}虚拟机更新{% endblock %}
+
+
+{% block form %}
+<form class="form-horizontal" role="form" action="{% url 'op:server_edit' id %}" method="post">
+    {% csrf_token %}
+
+    <fieldset>
+        <legend><strong>虚拟机更新</strong></legend>
+        <div class="col-lg-12 form-group">
+            <label class="col-sm-2 control-label">{{ form.ip.label_tag }}</label>
+            <div class="col-sm-4">{{ form.ip }}</div>
+            <label class="col-sm-2 control-label">{{ form.server.label_tag }}</label>
+            <div class="col-sm-4">{{ form.server }}</div>
+        </div>
+        <div class="col-lg-12 form-group">
+            <label class="col-sm-2 control-label">{{ form.environ.label_tag }}</label>
+            <div class="col-sm-4">{{ form.environ }}</div>
+            <label class="col-sm-2 control-label">{{ form.project.label_tag }}</label>
+            <div class="col-sm-4">{{ form.project }}</div>
+        </div>
+        <div class="col-lg-12 form-group">
+            <label class="col-sm-2 control-label">{{ form.state.label_tag }}</label>
+            <div class="col-sm-4">{{ form.state }}</div>
+            <label class="col-sm-2 control-label">{{ form.os.label_tag }}</label>
+            <div class="col-sm-4">{{ form.os }}</div>
+        </div>
+        <div class="col-lg-12 form-group">
+            <label class="col-sm-2 control-label">{{ form.cpu.label_tag }}</label>
+            <div class="col-sm-4">{{ form.cpu }}</div>
+            <label class="col-sm-2 control-label">{{ form.mem.label_tag }}</label>
+            <div class="col-sm-4">{{ form.mem }}</div>
+        </div>
+        <div class="col-lg-12 form-group">
+            <label class="col-sm-2 control-label">{{ form.disk.label_tag }}</label>
+            <div class="col-sm-4">{{ form.disk }}</div>
+            <label class="col-sm-2 control-label">{{ form.user.label_tag }}</label>
+            <div class="col-sm-4">{{ form.user }}</div>
+        </div>
+        <div class="col-lg-12 form-group">
+            <label class="col-sm-2 control-label">{{ form.port.label_tag }}</label>
+            <div class="col-sm-4">{{ form.port }}</div>
+            <label class="col-sm-2 control-label">{{ form.remark.label_tag }}</label>
+            <div class="col-sm-4">{{ form.remark }}</div>
+        </div>
+    </fieldset>
+
+    <div class="form-group">
+        <div class="col-sm-6 control-label">
+            <button type="submit" class="btn btn-primary">更  新</button>&nbsp;&nbsp;
+            <a href="{% url 'op:vhost_del' id %}" type="button" class="btn btn-primary">删  除</a>&nbsp;&nbsp;
+            <a href="{% url 'op:vhost' %}" type="button" class="btn btn-primary">返  回</a>
+        </div>
+    </div>
+
+</form>
+{% endblock %}
+
+
+
+
+
+
+
